@@ -14,6 +14,14 @@ function App() {
     });
   }
 
+  function deleteItem(id) {
+    setItems((prevItems) => {
+      return prevItems.filter((item, index) => {
+        return index !== id;
+      });
+    });
+  }
+
   return (
     <div>
       <Header />
@@ -24,6 +32,7 @@ function App() {
           id={index}
           title={todoItems.title}
           content={todoItems.content}
+          onDelete={deleteItem}
         />
       ))}
       <Footer />
